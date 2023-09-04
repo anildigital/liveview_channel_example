@@ -39,3 +39,7 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+let channel = liveSocket.channel("room:lobby", {})
+channel.join()
+  .receive("ok", resp => { console.log("Joined successfully from live", resp) })
+  .receive("error", resp => { console.log("Unable to join live", resp) })
