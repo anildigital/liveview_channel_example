@@ -30,6 +30,8 @@ topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
 window.addEventListener("phx:page-loading-stop", _info => topbar.hide())
 
+import "./user_socket.js"
+
 // connect if there are any LiveViews on the page
 liveSocket.connect()
 
@@ -39,7 +41,7 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
-let channel = liveSocket.channel("room:lobby", {})
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully from live", resp) })
-  .receive("error", resp => { console.log("Unable to join live", resp) })
+// let channel = liveSocket.channel("room:lobby", {})
+// channel.join()
+//   .receive("ok", resp => { console.log("Joined successfully from live", resp) })
+//   .receive("error", resp => { console.log("Unable to join live", resp) })
